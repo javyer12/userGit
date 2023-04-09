@@ -1,9 +1,13 @@
-.dark-mode {
+.dark-mode  {
     /* background-color: #222; */
     background-color: rgb(32,34,44);
-    color: #fff !important;
+    color: rgb(0, 200, 170) !important;
+
   }
 
-.userDetails, .userLinks {
-    color: rgb(0,200,170) !important;
+.userLinks {
+    color: rgb(0,200,170) ;
+}
+.userLinksDark{
+    color: rgb(0, 0, 0);
 }

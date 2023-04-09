@@ -5,6 +5,12 @@ import '../dark.css';
 
 export default function Home() {
     const [ theme, toggleTheme ] = useDarkMode();
+    if (theme === 'dark') {
+        document.body.classList.add('userLinks');
+        document.body.classList.remove('userLinksDark');
+    } else {
+        document.body.classList.add('userLinksDark');
+    }
     console.log(theme)
     return (
         <Fragment>
@@ -19,8 +25,8 @@ export default function Home() {
         </Fragment>
     )
 }
-{/* 
+/* 
 <div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
   <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-</div> */}
+</div> */

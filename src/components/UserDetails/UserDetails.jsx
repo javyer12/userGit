@@ -59,11 +59,11 @@ export default function UserDetails(data) {
                     {/* Description */}
                     <div className='mt-5'>
                         <div className='mt-3 d-flex justify-content-between'>
-                            <div><RiGitRepositoryCommitsFill /><a className='userLinks text-decoration-none text-black' href={userReposLink}>Links to Repos</a>{ }</div>
-                            <div><BiCodeCurly /> <a className=' userLinks text-decoration-none text-black' href={userGithub}>Profile</a>{ } </div>
+                            <div><RiGitRepositoryCommitsFill /> { } {userReposLink === null || '' ? "No Repos in this Account" : <a className='text-black text-decoration-none' href={`https://twitter.com/${userReposLink}`}><small className='userLinks '>Links to Repos</small></a>}</div>
+                            <div><BiCodeCurly /> { } {userGithub === null || '' ? "User not found or Profile Private" : <a className='userLinks text-decoration-none' href={`https://twitter.com/${userGithub}`}>Profile</a>}</div>
                         </div>
                         <div className='mt-3 d-flex justify-content-between'>
-                            <div><BsTwitter /> { } {userTwitter === null || '' ? "No Twitter Account" : <a className=' text-decoration-none text-black' href={`https://twitter.com/${userTwitter}`}><small className='userLinks'>{userTwitter}</small></a>}</div>
+                            <div><BsTwitter /> { } {userTwitter === null || '' ? "No Twitter Account" : <a className=' text-decoration-none text-black' href={`https://twitter.com/${userTwitter}`}><small className='userLinks '>{userTwitter}</small></a>}</div>
                             <div><GrLocation className='userLinks' /> { } {userLocation === null ? "No Location" : userLocation} </div>
                         </div>
                     </div>
