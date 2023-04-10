@@ -6,9 +6,27 @@ import UserDetails from './UserDetails/UserDetails';
 import gettingUser from '../services/FetchUser.service';
 
 
+const SUCCESS = (
+    <div className="bg-success alert alert-success" role="alert">
+        Request Successful!!.
+    </div>
+);
+const ERROR = (
+    <div className="bg-danger alert alert-danger" role="alert">
+        !!sUser not found, the user does not exist or there was some error!!
+    </div>
+)
+function Clean(trash, message) {
+    return setTimeout(() => {
+        trash(message)
+    }, 3000)
+}
+
 export default function GithubUser() {
-    const [ inputUser, setInputUser ] = useState("octocat");
+    const [ inputUser, setInputUser ] = useState('octocat');
     const [ userGithub, setUserGithub ] = useState('');
+    const [ notificationMessage, setNotificationMessage ] = useState('');
+
     const user = {
         avatarUrl: userGithub.avatar_url,
         userBio: userGithub.bio,
@@ -30,12 +48,19 @@ export default function GithubUser() {
                 if (inputUser === "octocat") {
                     localStorage.setItem("octocat", JSON.stringify(rta));
                 }
-                if (rta.message === "Not Found") {
+                else if (rta.message === "Not Found") {
                     const octocat = JSON.parse(localStorage.getItem("octocat"));
+                    setNotificationMessage(ERROR)
+                    Clean(setNotificationMessage, '')
                     return setUserGithub(octocat);
+                } else {
+                    setNotificationMessage(SUCCESS)
+                    Clean(setNotificationMessage, '')
                 }
                 return setUserGithub(rta);
             } catch (e) {
+                setNotificationMessage(ERROR)
+                Clean(setNotificationMessage, '')
                 throw new Error(`Could not get user Github`);
             }
         }
@@ -44,7 +69,8 @@ export default function GithubUser() {
 
 
     return (
-        <div className='bg-transparent rounded-4 shadow p-5'>
+        <div className='rounded-4 shadow p-5'>
+            {notificationMessage}
             <Search inputUser={inputUser} setInputUser={setInputUser} />
             <UserDetails data={user} />
         </div>

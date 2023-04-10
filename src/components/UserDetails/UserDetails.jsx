@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 import { GrLocation } from 'react-icons/gr';
 import { BiCodeCurly } from 'react-icons/bi';
 import { BsTwitter } from 'react-icons/bs';
@@ -20,6 +21,7 @@ export default function UserDetails(data) {
         userGithub,
         userTwitter,
         userLocation } = data.data;
+
     return (
         <div className='contianer mt-4 m-2'>
             <div className='row'>
@@ -32,7 +34,7 @@ export default function UserDetails(data) {
                 <div className='col-8'>
                     {/* date  */}
                     <div className='d-flex justify-content-between'>
-                        <small>{userGit}</small>
+                        <p>{userGit}</p>
                         <small>Created at:  {userDate}</small>
                     </div>
 
@@ -59,12 +61,24 @@ export default function UserDetails(data) {
                     {/* Description */}
                     <div className='mt-5'>
                         <div className='mt-3 d-flex justify-content-between'>
-                            <div><RiGitRepositoryCommitsFill /> { } {userReposLink === null || '' ? "No Repos in this Account" : <a className='text-black text-decoration-none' href={`https://twitter.com/${userReposLink}`}><small className='userLinks '>Links to Repos</small></a>}</div>
-                            <div><BiCodeCurly /> { } {userGithub === null || '' ? "User not found or Profile Private" : <a className='userLinks text-decoration-none' href={`https://twitter.com/${userGithub}`}>Profile</a>}</div>
+                            <div className='d-flex flex-row '
+                            ><p><RiGitRepositoryCommitsFill /> </p>
+                                { } {userReposLink === null || '' ? <p className='userColorFont'>No Repos in this Account</p> : <a className='userColorFont text-decoration-none' href={`https://twitter.com/${userReposLink}`}>Links to Repos</a>}
+                            </div>
+                            <div>
+                                <BiCodeCurly />
+                                { } {userGithub === null || '' ? <p className='userColorFont'>User not found or Profile Private</p> : <a className='userColorFont text-decoration-none' href={`https://twitter.com/${userGithub}`}>Profile</a>}
+                            </div>
                         </div>
                         <div className='mt-3 d-flex justify-content-between'>
-                            <div><BsTwitter /> { } {userTwitter === null || '' ? "No Twitter Account" : <a className=' text-decoration-none text-black' href={`https://twitter.com/${userTwitter}`}><small className='userLinks '>{userTwitter}</small></a>}</div>
-                            <div><GrLocation className='userLinks' /> { } {userLocation === null ? "No Location" : userLocation} </div>
+                            <div>
+                                <BsTwitter />
+                                { } {userTwitter === null || '' ? <p className='userColorFont'>No Twitter Account </p> : <a className=' text-decoration-none userColorFont' href={`https://twitter.com/${userTwitter}`}>{userTwitter}</a>}
+                            </div>
+                            <div>
+                                <GrLocation className='userColorFont' />
+                                { } {userLocation === null ? <p className='userColorFont'> No Location</p> : <p className='userColorFont'>{userLocation} </p>}
+                            </div>
                         </div>
                     </div>
                 </div>

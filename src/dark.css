@@ -2,12 +2,8 @@
     /* background-color: #222; */
     background-color: rgb(32,34,44);
     color: rgb(0, 200, 170) !important;
-
-  }
-
-.userLinks {
-    color: rgb(0,200,170) ;
 }
-.userLinksDark{
-    color: rgb(0, 0, 0);
+body {
+    font-weight: bold !important;
+    color: rgb(0, 0, 0) !important;
 }
