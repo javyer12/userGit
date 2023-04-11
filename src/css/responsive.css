@@ -44,4 +44,11 @@
         font-size: 12px;
     }
 }
+
+@media (max-width:490px){
+    .userDetails {
+        margin: 0% !important;
+        padding: 5% !important;
+    }
+}
 /* 1 */
