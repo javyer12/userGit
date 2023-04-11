@@ -5,15 +5,16 @@ import UserDetails from './UserDetails/UserDetails';
 
 import gettingUser from '../services/FetchUser.service';
 
+import '../css/responsive.css';
 
 const SUCCESS = (
-    <div className="bg-success alert alert-success" role="alert">
+    <div className="bg-info alert alert-success" role="alert">
         Request Successful!!.
     </div>
 );
 const ERROR = (
     <div className="bg-danger alert alert-danger" role="alert">
-        !!sUser not found, the user does not exist or there was some error!!
+        !!sUser not found or there was some error!!
     </div>
 )
 function Clean(trash, message) {
@@ -69,7 +70,7 @@ export default function GithubUser() {
 
 
     return (
-        <div className='rounded-4 shadow p-5'>
+        <div className='githubUser rounded-4 shadow p-5'>
             {notificationMessage}
             <Search inputUser={inputUser} setInputUser={setInputUser} />
             <UserDetails data={user} />

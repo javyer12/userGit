@@ -1,0 +1,47 @@
+.header {
+    visibility: hidden;
+}
+@media (max-width:725px){
+    .header {
+        visibility:visible;
+    }
+    label {
+        font-size:1rem;
+        text-align: center;
+    }
+    body{
+        background-color: rgb(26, 255, 0);
+        font-weight: normal !important;
+    }
+    .githubUser {
+        background-color: rgb(255, 255, 255) !important;
+        padding: .9rem !important;
+       
+    }
+    .githubUserDetails{
+        display: grid !important;
+        grid-template-rows:.6fr  1fr !important;
+    }
+    .githubUserImg {
+        width: 100%;
+        padding:auto;
+        margin: 2% 0 2% 0;
+    }
+    .githubUserImg img{
+        width: fit-content;
+    }
+    .githubUserDescription {
+        width:100% !important ;
+    }
+    .githubUserDate {
+        display: block !important;
+        margin: auto;
+    }
+    small,a,p,h3,h4,h5,h6 {
+        color: black !important;
+    }
+    a,p {
+        font-size: 12px;
+    }
+}
+/* 1 */
